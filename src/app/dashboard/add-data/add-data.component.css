@@ -1,0 +1,59 @@
+/* Formular wird von links verschoben */
+form {
+  max-width: 460px; /* Maximale Breite für das Formular */
+  margin: auto; /* Zentriert das Formular und fügt Abstand oben und unten hinzu */
+  /*background-color: #fff; !* Weißer Hintergrund für das Formular *!*/
+}
+
+/* Styling für die Form-Elemente */
+mat-form-field {
+  width: 100%; /* Sorgt dafür, dass die Formularelemente die gesamte Breite einnehmen */
+  margin-bottom: 10px; /* Abstand zwischen den Formularfeldern */
+  background-color: #fff;
+}
+
+mat-error {
+  font-size: 14px; /* Kleinere Schriftgröße für Fehler */
+  color: #e74c3c; /* Rot für Fehlertexte */
+}
+
+mat-checkbox {
+  margin-top: 10px; /* Abstand zur Checkbox */
+  margin-bottom: 10px; /* Abstand nach unten */
+}
+
+button {
+  width: 100%; /* Button nimmt die ganze Breite ein */
+  margin-top: 10px; /* Abstand nach oben */
+  padding: 10px;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 1050; /* Sicherstellen, dass Toast über dem Inhalt angezeigt wird */
+}
+
+.toast {
+  background-color: #28a745; /* Grün für Erfolg */
+  color: #fff;
+  font-size: 16px; /* Textgröße im Toast */
+}
+
+.toast .btn-close {
+  color: #fff; /* Farbe des Schließen-Buttons */
+}
+
+/* Abstand zum linken Rand hinzufügen */
+.container {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Optional: Um responsive zu sein, können wir auf kleineren Bildschirmen die Breite des Formulars anpassen */
+@media (max-width: 600px) {
+  form {
+    width: 90%; /* Auf kleineren Bildschirmen wird das Formular breiter */
+  }
+}

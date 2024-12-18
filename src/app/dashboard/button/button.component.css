@@ -1,0 +1,5 @@
+button[mat-button] {
+  margin-bottom: 15px; /* Abstand zum Formular */
+  padding: 10px;
+  width: 100%; /* Button nimmt die ganze Breite ein */
+}

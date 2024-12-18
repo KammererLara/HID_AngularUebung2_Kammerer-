@@ -1,1 +1,4 @@
-<button (click)="buttonClicked()">{{showForm ? "Formular schließen": 'Formular öffnen'}}</button>
+<!--<button (click)="buttonClicked()">{{showForm ? "Formular schließen": 'Formular öffnen'}}</button>-->
+<button mat-button color="accent" type="button" (click)="buttonClicked()">
+  {{ showForm ? 'Formular schließen' : 'Formular öffnen' }}
+</button>

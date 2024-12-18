@@ -1,9 +1,30 @@
 .flex {
-    display: flex;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 img {
-    width: 100%;
-    height: auto;
-    max-width: 200px;
+  max-width: 100px;
+  height: auto;
+  margin-right: 20px;
+  object-fit: contain;
+}
+
+.spacer {
+  flex: 1;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+mat-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 0 20px;
+  margin-bottom: 20px;
 }

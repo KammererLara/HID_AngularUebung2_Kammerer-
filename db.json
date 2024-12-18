@@ -74,19 +74,49 @@
       "id": 1,
       "name": "Testuser",
       "birthdate": "2024-11-13",
+      "email": "sla.sa@ds.sd",
+      "newsletter": true,
       "courseId": "_iL775j"
     },
     {
       "name": "Julia Schabasser",
       "courseId": "_iL775i",
       "birthdate": "1995-02-23",
+      "email": "sla.sa@ds.sd",
+      "newsletter": true,
       "id": 2
     },
     {
       "name": "Julia Schabasser",
       "courseId": "_iL775a",
       "birthdate": "1995-02-23",
+      "email": "sla.sa@ds.sd",
+      "newsletter": true,
       "id": 3
+    },
+    {
+      "name": "dsa wdasa",
+      "birthdate": "2004-01-31",
+      "email": "sla.sa@ds.sd",
+      "newsletter": true,
+      "courseId": "_iL775a",
+      "id": 4
+    },
+    {
+      "name": "fsd",
+      "birthdate": "2324-03-12",
+      "email": "asd.qe@dsa.s",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 5
+    },
+    {
+      "name": "sad",
+      "birthdate": "32321-05-14",
+      "email": "ser.wdq@d.asd",
+      "newsletter": true,
+      "courseId": "_iL775j",
+      "id": 6
     }
   ]
 }

@@ -1,3 +1,5 @@
-<app-button (buttonClickedEvent)="buttonClicked()" [showForm]="showForm"></app-button>
-<app-add-data *ngIf="showForm"></app-add-data>
+<div class="form-container">
+  <app-button (buttonClickedEvent)="buttonClicked()" [showForm]="showForm"></app-button>
+  <app-add-data *ngIf="showForm"></app-add-data>
+</div>
 <app-data></app-data>
