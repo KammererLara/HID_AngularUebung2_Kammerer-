@@ -16,6 +16,6 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     StoreService,
     BackendService,
-    provideAnimationsAsync(), provideAnimationsAsync()
+    provideAnimationsAsync()
   ]
 };

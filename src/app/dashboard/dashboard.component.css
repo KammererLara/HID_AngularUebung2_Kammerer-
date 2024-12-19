@@ -1,10 +1,10 @@
 .form-container {
-  max-width: 500px; /* Die Breite des Rahmens */
-  margin: 20px auto; /* Zentriert den Container */
+  max-width: 500px;
+  margin: 20px auto;
   padding: 20px;
-  border-radius: 8px; /* Abgerundete Ecken */
-  background-color: #fff; /* Weißer Hintergrund */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Schatten */
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 @media (max-width: 600px) {

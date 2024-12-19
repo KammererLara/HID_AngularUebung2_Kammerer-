@@ -1,30 +1,27 @@
-/* Formular wird von links verschoben */
 form {
-  max-width: 460px; /* Maximale Breite für das Formular */
-  margin: auto; /* Zentriert das Formular und fügt Abstand oben und unten hinzu */
-  /*background-color: #fff; !* Weißer Hintergrund für das Formular *!*/
+  max-width: 460px;
+  margin: auto;
 }
 
-/* Styling für die Form-Elemente */
 mat-form-field {
-  width: 100%; /* Sorgt dafür, dass die Formularelemente die gesamte Breite einnehmen */
-  margin-bottom: 10px; /* Abstand zwischen den Formularfeldern */
+  width: 100%;
+  margin-bottom: 10px;
   background-color: #fff;
 }
 
 mat-error {
-  font-size: 14px; /* Kleinere Schriftgröße für Fehler */
-  color: #e74c3c; /* Rot für Fehlertexte */
+  font-size: 14px;
+  color: #e74c3c;
 }
 
 mat-checkbox {
-  margin-top: 10px; /* Abstand zur Checkbox */
-  margin-bottom: 10px; /* Abstand nach unten */
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 button {
-  width: 100%; /* Button nimmt die ganze Breite ein */
-  margin-top: 10px; /* Abstand nach oben */
+  width: 100%;
+  margin-top: 10px;
   padding: 10px;
 }
 
@@ -32,28 +29,26 @@ button {
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 1050; /* Sicherstellen, dass Toast über dem Inhalt angezeigt wird */
+  z-index: 1050;
 }
 
 .toast {
-  background-color: #28a745; /* Grün für Erfolg */
+  background-color: #28a745;
   color: #fff;
-  font-size: 16px; /* Textgröße im Toast */
+  font-size: 16px;
 }
 
 .toast .btn-close {
-  color: #fff; /* Farbe des Schließen-Buttons */
+  color: #fff;
 }
 
-/* Abstand zum linken Rand hinzufügen */
 .container {
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* Optional: Um responsive zu sein, können wir auf kleineren Bildschirmen die Breite des Formulars anpassen */
 @media (max-width: 600px) {
   form {
-    width: 90%; /* Auf kleineren Bildschirmen wird das Formular breiter */
+    width: 90%;
   }
 }
