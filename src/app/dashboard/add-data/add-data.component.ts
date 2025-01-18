@@ -43,7 +43,7 @@ export class AddDataComponent implements OnInit {
   onSubmit() {
     if(this.registrationForm.valid) {
       try {
-        this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
+        this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage, this.storeService.sortOrder);
         this.showToast = true;
         setTimeout(() => this.hideToast(), 5000);
       } catch(err) {

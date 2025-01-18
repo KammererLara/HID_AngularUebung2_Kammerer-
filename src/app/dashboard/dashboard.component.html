@@ -2,4 +2,9 @@
   <app-button (buttonClickedEvent)="buttonClicked()" [showForm]="showForm"></app-button>
   <app-add-data *ngIf="showForm"></app-add-data>
 </div>
-<app-data></app-data>
+<div class="container">
+  <div class="row">
+    <app-course></app-course>
+    <app-registration></app-registration>
+  </div>
+</div>

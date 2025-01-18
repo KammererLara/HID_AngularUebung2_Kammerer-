@@ -1,0 +1,58 @@
+<div class="col-12 col-md-10">
+  <h2>Kursanmeldungen</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Geburtsdatum</th>
+      <th>Kurs</th>
+      <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+<!--    <tr *ngFor="let registration of sortedRegistrations()">-->
+<tr *ngFor="let registration of sortedRegistrations()" [class.loading-row]="loadingStates[registration.id]">
+  <td>{{ registration.name }}</td>
+  <td>{{ registration.birthdate }}</td>
+  <td>{{ registration.course.name }}</td>
+  <td class="position-relative">
+    <!-- Spinner wird hier angezeigt, wenn loadingStates[registration.id] wahr ist -->
+    <div *ngIf="loadingStates[registration.id]" class="loading-overlay">
+      <app-loading-spinner></app-loading-spinner>
+    </div>
+    <!-- Der Button wird deaktiviert, wenn loadingStates[registration.id] wahr ist -->
+    <button
+      mat-button
+      color="warn"
+      (click)="cancelRegistration(registration.id)"
+      [disabled]="loadingStates[registration.id]">
+      Abmelden
+    </button>
+  </td>
+</tr>
+
+<!--      <td>{{registration.name}}</td>-->
+<!--      <td>{{registration.birthdate}}</td>-->
+<!--      <td>{{registration.course.name}}</td>-->
+<!--      <td>-->
+<!--        <button mat-button color="warn" (click)="cancelRegistration(registration.id)" [disabled]="loading">-->
+<!--          Abmelden-->
+<!--        </button>-->
+<!--        <div *ngIf="loading" class="overlay">-->
+<!--          <app-loading-spinner></app-loading-spinner>-->
+<!--        </div>-->
+<!--      </td>-->
+<!--    </tr>-->
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-12 col-md-10">
+      <div class="pagination">
+        <button [ngClass]="page == storeService.currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages()">{{page}}</button>
+      </div>
+    </div>
+  </div>
+<!--  TODO sorted by birthdate-->
+<!--  TODO sortiert korrekt - dauert nur sehr lange-->
+  <button (click)="toggleSortOrder()">Sortieren nach Geburtsdatum: {{ storeService.sortOrder }}</button>
+</div>

@@ -20,6 +20,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.backendService.getCourses();
-    this.backendService.getRegistrations(this.storeService.currentPage);
+    this.backendService.getRegistrations(this.storeService.currentPage, this.storeService.sortOrder);
   }
 }
