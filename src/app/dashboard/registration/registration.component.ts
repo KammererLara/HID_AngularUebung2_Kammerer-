@@ -12,7 +12,6 @@ import {LoadingSpinnerComponent} from "../../loading-spinner/loading-spinner.com
   styleUrl: './registration.component.css'
 })
 export class RegistrationComponent {
-  loading = false;
   loadingStates: { [id: string]: boolean } = {};
 
   constructor(public storeService: StoreService, private backendService: BackendService) {}
@@ -45,9 +44,7 @@ export class RegistrationComponent {
   }
 
   toggleSortOrder() {
-    this.storeService.registrationsLoading = true;
     this.storeService.sortOrder = this.storeService.sortOrder === 'asc' ? 'desc' : 'asc';
     this.backendService.getRegistrations(this.storeService.currentPage, this.storeService.sortOrder);
-    this.storeService.registrationsLoading = false;
   }
 }
