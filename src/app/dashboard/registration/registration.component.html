@@ -10,39 +10,21 @@
     </tr>
     </thead>
     <tbody>
-<!--    <tr *ngFor="let registration of sortedRegistrations()">-->
-<tr *ngFor="let registration of sortedRegistrations()" [class.loading-row]="loadingStates[registration.id]">
-  <td>{{ registration.name }}</td>
-  <td>{{ registration.birthdate }}</td>
-  <td>{{ registration.course.name }}</td>
-  <td class="position-relative">
-    <!-- Spinner wird hier angezeigt, wenn loadingStates[registration.id] wahr ist -->
-    <div *ngIf="loadingStates[registration.id]" class="loading-overlay">
-      <app-loading-spinner></app-loading-spinner>
-    </div>
-    <!-- Der Button wird deaktiviert, wenn loadingStates[registration.id] wahr ist -->
-    <button
-      mat-button
-      color="warn"
-      (click)="cancelRegistration(registration.id)"
-      [disabled]="loadingStates[registration.id]">
-      Abmelden
-    </button>
-  </td>
-</tr>
-
-<!--      <td>{{registration.name}}</td>-->
-<!--      <td>{{registration.birthdate}}</td>-->
-<!--      <td>{{registration.course.name}}</td>-->
-<!--      <td>-->
-<!--        <button mat-button color="warn" (click)="cancelRegistration(registration.id)" [disabled]="loading">-->
-<!--          Abmelden-->
-<!--        </button>-->
-<!--        <div *ngIf="loading" class="overlay">-->
-<!--          <app-loading-spinner></app-loading-spinner>-->
-<!--        </div>-->
-<!--      </td>-->
-<!--    </tr>-->
+    <tr *ngFor="let registration of storeService.registrations" [class.loading-row]="loadingStates[registration.id]">
+      <td>{{ registration.name }}</td>
+      <td>{{ registration.birthdate }}</td>
+      <td>{{ registration.course.name }}, {{ registration.course.instructor }}</td>
+      <td>
+        <div *ngIf="loadingStates[registration.id]" class="overlay">
+          <div class="center">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+        </div>
+        <button mat-button color="warn" (click)="cancelRegistration(registration.id)" [disabled]="loadingStates[registration.id]">
+          Abmelden
+        </button>
+      </td>
+    </tr>
     </tbody>
   </table>
   <div class="row">

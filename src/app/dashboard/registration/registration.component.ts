@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
 import { StoreService } from '../../shared/store.service';
 import { BackendService } from '../../shared/backend.service';
-import {HttpClient} from "@angular/common/http";
 import {LoadingSpinnerComponent} from "../../loading-spinner/loading-spinner.component";
 
 @Component({
@@ -31,35 +30,24 @@ export class RegistrationComponent {
     return Array.from({ length: pagesCount }, (_, i) => i + 1);
   }
 
-  // cancelRegistration(registrationId: string) {
-  //   this.loading = true;
-  //   this.backendService.deleteRegistration(registrationId, this.storeService.currentPage, this.storeService.sortOrder);
-  //   this.loading = false;
-  // }
-
   cancelRegistration(registrationId: string) {
-    // Setzt den Ladezustand auf true für die betroffene Zeile, um die Zeile während des Löschvorgangs auszugrauen
     this.loadingStates[registrationId] = true;
 
-    // Löscht die Registrierung
-    this.backendService.deleteRegistration(registrationId, this.storeService.currentPage, this.storeService.sortOrder);
-
-    // Nach dem Löschen wird die betroffene Zeile zurückgesetzt (wenn sie gelöscht wurde)
-    this.loadingStates[registrationId] = false;
+    this.backendService.deleteRegistration(registrationId, this.storeService.currentPage, this.storeService.sortOrder)
+      .subscribe({
+        next: () => {
+          this.loadingStates[registrationId] = false;
+        },
+        error: () => {
+          this.loadingStates[registrationId] = false;
+        }
+      });
   }
-
 
   toggleSortOrder() {
+    this.storeService.registrationsLoading = true;
     this.storeService.sortOrder = this.storeService.sortOrder === 'asc' ? 'desc' : 'asc';
     this.backendService.getRegistrations(this.storeService.currentPage, this.storeService.sortOrder);
-  }
-
-  //TODO: sorted by birthdate
-  sortedRegistrations() {
-    return this.storeService.registrations.sort((a, b) => {
-      const dateA = new Date(a.birthdate).getTime();
-      const dateB = new Date(b.birthdate).getTime();
-      return this.storeService.sortOrder === 'asc' ? dateA - dateB : dateB - dateA;
-    });
+    this.storeService.registrationsLoading = false;
   }
 }

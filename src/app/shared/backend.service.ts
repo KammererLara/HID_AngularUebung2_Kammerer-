@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { StoreService } from './store.service';
 import { Course } from './Interfaces/Course';
 import { Registration } from './Interfaces/Registration';
-import {Observable} from "rxjs";
+import {Observable, tap} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -41,6 +41,7 @@ export class BackendService {
   }
 
   public addRegistration(registration: any, page: number, sortOrder: 'asc' | 'desc') {
+    this.storeService.registrationsLoading = true;
     this.http.post('http://localhost:5000/registrations', registration).subscribe(_ => {
       this.getRegistrations(page, sortOrder);
     })
@@ -51,11 +52,12 @@ export class BackendService {
   //     this.getRegistrations(page, sortOrder);
   //   });
   // }
-  public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc') {
-    return this.http.delete(`http://localhost:5000/registrations/${registrationId}`).subscribe(() => {
-      // Nach erfolgreichem Löschen werden die Registrierungen neu geladen
-      this.getRegistrations(page, sortOrder);
-    });
+  public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc'): Observable<void> {
+    return this.http.delete<void>(`http://localhost:5000/registrations/${registrationId}`).pipe(
+      tap(() => {
+        // Nach erfolgreichem Löschen werden die Registrierungen neu geladen
+        this.getRegistrations(page, sortOrder);
+      })
+    );
   }
-
 }
