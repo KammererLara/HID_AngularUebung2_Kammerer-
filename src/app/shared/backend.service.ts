@@ -28,7 +28,7 @@ export class BackendService {
         _expand: 'course',
         _page: page.toString(),
         _limit: this.pageSize.toString(),
-        _sort: 'birthdate',
+        _sort: 'registrationTimestamp',
         _order: sortOrder
       }
     };

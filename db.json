@@ -71,60 +71,178 @@
   ],
   "registrations": [
     {
-      "id": 1,
-      "name": "Testuser",
-      "birthdate": "2024-11-13",
-      "email": "sla.sa@ds.sd",
-      "newsletter": true,
-      "courseId": "_iL775j"
-    },
-    {
-      "name": "Julia Schabasser",
-      "courseId": "_iL775i",
-      "birthdate": "1995-02-23",
-      "email": "sla.sa@ds.sd",
-      "newsletter": true,
-      "id": 2
-    },
-    {
       "name": "Julia Schabasser",
       "courseId": "_iL775a",
       "birthdate": "1995-02-23",
       "email": "sla.sa@ds.sd",
       "newsletter": true,
-      "id": 3
+      "id": 3,
+      "registrationTimestamp": "2025-01-15T08:15:00Z"
     },
     {
-      "name": "dsa wdasa",
-      "birthdate": "2004-01-31",
-      "email": "sla.sa@ds.sd",
-      "newsletter": true,
-      "courseId": "_iL775a",
-      "id": 4
-    },
-    {
-      "name": "fsd",
-      "birthdate": "2324-03-12",
-      "email": "asd.qe@dsa.s",
-      "newsletter": false,
-      "courseId": "_iL775j",
-      "id": 5
-    },
-    {
-      "name": "sad",
-      "birthdate": "32321-05-14",
-      "email": "ser.wdq@d.asd",
+      "name": "Lara Kammerer",
+      "birthdate": "1995-07-05",
+      "email": "lara.kammerer@gmail.com",
       "newsletter": true,
       "courseId": "_iL775j",
-      "id": 6
+      "id": 8,
+      "registrationTimestamp": "2025-01-16T09:22:00Z"
     },
     {
-      "name": "adff",
-      "birthdate": "2012-03-04",
-      "email": "dsfs@ds.qw",
+      "name": "Mathias Ruckstätter",
+      "birthdate": "1996-04-12",
+      "email": "mathias.ruckstaetter@gmail.com",
       "newsletter": false,
       "courseId": "_iL775i",
-      "id": 7
+      "id": 9,
+      "registrationTimestamp": "2025-01-17T10:45:00Z"
+    },
+    {
+      "name": "qwrE",
+      "birthdate": "3143-04-21",
+      "email": "sdfg@fsd.sdf",
+      "newsletter": true,
+      "courseId": "_iL775i",
+      "id": 11,
+      "registrationTimestamp": "2025-01-18T11:00:00Z"
+    },
+    {
+      "name": "qwrE",
+      "birthdate": "3143-04-21",
+      "email": "sdfg@fsd.sdf",
+      "newsletter": true,
+      "courseId": "_iL775a",
+      "id": 12,
+      "registrationTimestamp": "2025-01-14T11:30:00Z"
+    },
+    {
+      "name": "qwrE",
+      "birthdate": "3143-04-21",
+      "email": "sdfg@fsd.sdf",
+      "newsletter": false,
+      "courseId": "_iL775i",
+      "id": 13,
+      "registrationTimestamp": "2025-01-19T12:45:00Z"
+    },
+    {
+      "name": "qwrEasdfewr",
+      "birthdate": "3143-04-21",
+      "email": "sdfg@fsd.sdf",
+      "newsletter": false,
+      "courseId": "_iL775i",
+      "id": 15,
+      "registrationTimestamp": "2025-01-13T13:50:00Z"
+    },
+    {
+      "name": "sdfewq",
+      "birthdate": "2312-12-12",
+      "email": "aedf@asd.sd",
+      "newsletter": false,
+      "courseId": "_iL775i",
+      "id": 18,
+      "registrationTimestamp": "2025-01-18T14:25:00Z"
+    },
+    {
+      "name": "wqe",
+      "birthdate": "21321-03-12",
+      "email": "sfd@fades.dsf",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 21,
+      "registrationTimestamp": "2025-01-14T16:10:00Z"
+    },
+    {
+      "name": "dfg",
+      "birthdate": "2312-11-23",
+      "email": "fde@sdf.fgfg",
+      "newsletter": false,
+      "courseId": "_iL775a",
+      "id": 22,
+      "registrationTimestamp": "2025-01-17T08:30:00Z"
+    },
+    {
+      "name": "qwe",
+      "birthdate": "4354-12-13",
+      "email": "awed@dsf.sd",
+      "newsletter": false,
+      "courseId": "_iL775a",
+      "id": 23,
+      "registrationTimestamp": "2025-01-16T09:05:00Z"
+    },
+    {
+      "name": "das",
+      "birthdate": "275760-03-12",
+      "email": "sadsa@afdfds.sfd",
+      "newsletter": true,
+      "courseId": "_iL775j",
+      "id": 25,
+      "registrationTimestamp": "2025-01-18T10:45:00Z"
+    },
+    {
+      "name": "das",
+      "birthdate": "275760-03-12",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 26,
+      "registrationTimestamp": "2025-01-15T11:50:00Z"
+    },
+    {
+      "name": "sfcdasDF",
+      "birthdate": "135435-02-23",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 27,
+      "registrationTimestamp": "2025-01-13T12:00:00Z"
+    },
+    {
+      "name": "fasdf",
+      "birthdate": "0123-03-21",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 28,
+      "registrationTimestamp": "2025-01-17T13:30:00Z"
+    },
+    {
+      "name": "fds",
+      "birthdate": "0123-03-21",
+      "email": "fgsdgs@fdsa.dsf",
+      "newsletter": true,
+      "courseId": "_iL775j",
+      "id": 30,
+      "registrationTimestamp": "2025-01-19T14:15:00Z"
+    },
+    {
+      "name": "dfs",
+      "birthdate": "0324-03-04",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 32,
+      "registrationTimestamp": "2025-01-14T15:50:00Z"
+    },
+    {
+      "name": "dzgdzter",
+      "birthdate": "5435-03-04",
+      "email": "rsftwe@dsf.fs",
+      "newsletter": true,
+      "courseId": "_iL775i",
+      "id": 35,
+      "registrationTimestamp": "2025-01-12T16:30:00Z"
+    },
+    {
+      "name": "453",
+      "birthdate": "275760-05-06",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "id": 36,
+      "registrationTimestamp": "2025-01-19T17:45:00Z"
+    },
+    {
+      "name": "rwer",
+      "birthdate": "0353-05-04",
+      "newsletter": false,
+      "courseId": "_iL775j",
+      "registrationTimestamp": "2025-01-19T15:54:39.226Z",
+      "id": 37
     }
   ]
 }
