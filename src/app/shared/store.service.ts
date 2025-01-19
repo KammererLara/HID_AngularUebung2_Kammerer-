@@ -15,4 +15,5 @@ export class StoreService {
   public currentPage: number = 1;
   public coursesLoading = true;
   public registrationsLoading = true;
+  public sortOrder: 'asc' | 'desc' = 'asc';
 }

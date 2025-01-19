@@ -1,0 +1,46 @@
+<div class="col-12 col-md-10">
+  <h2>Kursanmeldungen</h2>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Geburtsdatum</th>
+      <th>Kurs</th>
+      <th>Anmeldezeitpunkt</th>
+      <th>Newsletter Abonnement</th>
+      <th>E-Mail</th>
+      <th>Aktionen</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let registration of storeService.registrations" [class.loading-row]="loadingStates[registration.id]">
+      <td>{{ registration.name }}</td>
+      <td>{{ (registration.birthdate | date: 'dd.MM.yyyy') }}</td>
+      <td>{{ registration.course.name }}, {{ registration.course.instructor }}</td>
+      <td>
+        {{ registration.registrationTimestamp ? (registration.registrationTimestamp | date: 'dd.MM.yyyy, HH:mm') : '' }}
+      </td>
+      <td>{{ registration.newsletter ? 'Ja' : '' }}</td>
+      <td>{{ registration.email }}</td>
+      <td>
+        <div *ngIf="loadingStates[registration.id]" class="overlay">
+          <div class="center">
+            <app-loading-spinner></app-loading-spinner>
+          </div>
+        </div>
+        <button mat-button color="warn" (click)="cancelRegistration(registration.id)" [disabled]="loadingStates[registration.id]">
+          Abmelden
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div class="row">
+    <div class="col-12 col-md-10">
+      <div class="pagination">
+        <button [ngClass]="page == storeService.currentPage ? 'active' : ''" (click)="selectPage(page)" type="button" *ngFor="let page of returnAllPages()">{{page}}</button>
+      </div>
+    </div>
+  </div>
+  <button (click)="toggleSortOrder()">Sortieren nach Geburtsdatum: {{ storeService.sortOrder }}</button>
+</div>

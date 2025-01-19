@@ -1,0 +1,15 @@
+.container {
+  max-width: 1200px;
+}
+
+.row {
+  justify-content: center;
+}
+
+@media (min-width: 768px) {
+  .row {
+    display: flex;
+    align-items: center;
+    height: 100px;
+  }
+}

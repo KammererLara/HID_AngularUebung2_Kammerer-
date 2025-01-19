@@ -34,18 +34,29 @@ export class AddDataComponent implements OnInit {
     this.registrationForm = this.formbuilder.group({
       name: ['', [Validators.required]],
       birthdate: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
+      email: [{ value: '', disabled: true }, [Validators.email]],
       newsletter: [false],
       courseId: ['', Validators.required],
     })
+
+    this.registrationForm.get('newsletter')?.valueChanges.subscribe((checked: boolean) => {
+      this.toggleEmailField(checked);
+    });
   }
 
   onSubmit() {
     if(this.registrationForm.valid) {
       try {
-        this.backendService.addRegistration(this.registrationForm.value, this.storeService.currentPage);
+        const registrationData = {
+          ...this.registrationForm.value,
+          registrationTimestamp: new Date().toISOString(),
+        };
+        this.backendService.addRegistration(registrationData, this.storeService.currentPage, this.storeService.sortOrder);
         this.showToast = true;
-        setTimeout(() => this.hideToast(), 5000);
+        setTimeout(() => {
+          this.hideToast();
+          this.resetForm();
+        }, 5000);
       } catch(err) {
           console.error('Fehler bei der Registrierung:', err);
       }
@@ -54,5 +65,31 @@ export class AddDataComponent implements OnInit {
 
   hideToast() {
     this.showToast = false;
+  }
+
+  resetForm() {
+    this.registrationForm.reset();
+    Object.keys(this.registrationForm.controls).forEach(controlName => {
+      const control = this.registrationForm.get(controlName);
+      if (control) {
+        control.markAsPristine();
+        control.markAsUntouched();
+        control.setErrors(null);
+      }
+    });
+  }
+
+  toggleEmailField(checked: boolean): void {
+    const emailControl = this.registrationForm.get('email');
+
+    if (checked) {
+      emailControl?.enable();
+      emailControl?.setValidators([Validators.required, Validators.email]);
+    } else {
+      emailControl?.disable();
+      emailControl?.clearValidators();
+    }
+
+    emailControl?.updateValueAndValidity();
   }
 }

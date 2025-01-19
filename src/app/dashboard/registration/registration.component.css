@@ -11,6 +11,12 @@ button.active {
   justify-content: center;
 }
 
+.loading-row {
+  position: relative;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
 @media (min-width: 768px) {
   .row {
     display: flex;
