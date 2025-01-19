@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { StoreService } from './store.service';
 import { Course } from './Interfaces/Course';
 import { Registration } from './Interfaces/Registration';
-import {Observable, tap} from "rxjs";
+import {catchError, Observable, tap, throwError} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -47,16 +47,15 @@ export class BackendService {
     })
   }
 
-  // public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc') {
-  //   this.http.delete(`http://localhost:5000/registrations/${registrationId}`).subscribe(_ => {
-  //     this.getRegistrations(page, sortOrder);
-  //   });
-  // }
-  public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc'): Observable<void> {
+  public deleteRegistration(registrationId: string): Observable<void> {
+    const index = this.storeService.registrations.findIndex(reg => reg.id === registrationId);
+    if (index !== -1) {
+      this.storeService.registrations.splice(index, 1);
+    }
     return this.http.delete<void>(`http://localhost:5000/registrations/${registrationId}`).pipe(
-      tap(() => {
-        // Nach erfolgreichem Löschen werden die Registrierungen neu geladen
-        this.getRegistrations(page, sortOrder);
+      catchError(error => {
+        console.error('Fehler beim Löschen der Registrierung', error);
+        return throwError(error);
       })
     );
   }
