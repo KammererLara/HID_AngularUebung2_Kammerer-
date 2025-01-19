@@ -47,15 +47,28 @@ export class BackendService {
     })
   }
 
-  public deleteRegistration(registrationId: string): Observable<void> {
-    const index = this.storeService.registrations.findIndex(reg => reg.id === registrationId);
-    if (index !== -1) {
-      this.storeService.registrations.splice(index, 1);
-    }
+  //INFO: die Methodensignatur ist nur mit page und sortOrder, damit durch einfaches Aus- und Einkommentieren dieser
+  // Variante der Loading Spinner wieder gezeigt wird
+  // das hier ist die performantere Variante, wodurch der Loading Spinner nie angezeigt wird
+  // die Signatur ist somit nur gleich, dass nicht auch noch zusätzlich der Aufruf in registration.component.ts
+  // angepasst werden muss - in dieser Variante werden die jedoch garnicht benötigt
+  // public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc'): Observable<void> {
+  //   const index = this.storeService.registrations.findIndex(reg => reg.id === registrationId);
+  //   if (index !== -1) {
+  //     this.storeService.registrations.splice(index, 1);
+  //   }
+  //   return this.http.delete<void>(`http://localhost:5000/registrations/${registrationId}`).pipe(
+  //     catchError(error => {
+  //       console.error('Fehler beim Löschen der Registrierung', error);
+  //       return throwError(error);
+  //     })
+  //   );
+  // }
+
+  public deleteRegistration(registrationId: string, page: number, sortOrder: 'asc' | 'desc'): Observable<void> {
     return this.http.delete<void>(`http://localhost:5000/registrations/${registrationId}`).pipe(
-      catchError(error => {
-        console.error('Fehler beim Löschen der Registrierung', error);
-        return throwError(error);
+      tap(() => {
+        this.getRegistrations(page, sortOrder);
       })
     );
   }

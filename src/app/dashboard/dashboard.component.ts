@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { RegistrationComponent } from './registration/registration.component';
 import { AddDataComponent } from './add-data/add-data.component';
 import { ButtonComponent } from './button/button.component';

@@ -32,7 +32,7 @@ export class RegistrationComponent {
   cancelRegistration(registrationId: string) {
     this.loadingStates[registrationId] = true;
 
-    this.backendService.deleteRegistration(registrationId)
+    this.backendService.deleteRegistration(registrationId, this.storeService.currentPage, this.storeService.sortOrder)
       .subscribe({
         next: () => {
           this.loadingStates[registrationId] = false;
